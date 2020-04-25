@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import listeners.Movable;
 import listeners.MyMouseListener;
 import listeners.Paintable;
+import mvvm.Data;
 
 public class Shape implements Movable , Paintable{
 	
@@ -24,6 +25,10 @@ public class Shape implements Movable , Paintable{
 	private boolean isLive;
 	private MyMouseListener listener;
 	
+	public Shape() {
+		//
+	}
+
 	public int getX() {
 		return x;
 	}
@@ -80,15 +85,9 @@ public class Shape implements Movable , Paintable{
 		this.listener = listener;
 	}
 
-	public Shape() {
-		
-	}
-
 	@Override
 	public void paint(Graphics g) {
-		
-		
-		
+		//
 	}
 
 	@Override
@@ -98,6 +97,7 @@ public class Shape implements Movable , Paintable{
 	}
 	
 	public Data toStringForPaint() {
-		
+		//to be implemented
+		return null;
 	}
 }
