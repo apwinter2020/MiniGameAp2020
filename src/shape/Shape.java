@@ -2,63 +2,23 @@ package shape;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.awt.image.BufferedImage;
 
-import javax.swing.JFrame;
-
-import listeners.Movable;
 import listeners.MyMouseListener;
-import listeners.Paintable;
+import model.GameObject;
+import model.Vector;
 import mvvm.Data;
 
-public class Shape implements Movable , Paintable{
-	
-	private int x;
-	private int y;
-	private int speedX;
-	private int speedY;
+public class Shape implements GameObject {
+
+	private Vector location;
+	private Vector speed;
 
 	private Color color;
 	private boolean isLive;
 	private MyMouseListener listener;
-	
-	public Shape() {
+
+	public Shape(int x, int y, int r, int speedX, int speedY) {
 		//
-	}
-
-	public int getX() {
-		return x;
-	}
-
-	public void setX(int x) {
-		this.x = x;
-	}
-
-	public int getY() {
-		return y;
-	}
-
-	public void setY(int y) {
-		this.y = y;
-	}
-
-	public int getSpeedX() {
-		return speedX;
-	}
-
-	public void setSpeedX(int speedX) {
-		this.speedX = speedX;
-	}
-
-	public int getSpeedY() {
-		return speedY;
-	}
-
-	public void setSpeedY(int speedY) {
-		this.speedY = speedY;
 	}
 
 	public Color getColor() {
@@ -93,11 +53,39 @@ public class Shape implements Movable , Paintable{
 	@Override
 	public void move() {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
+	public Data getDataToPaint() {
+		return null;
+	}
+
 	public Data toStringForPaint() {
 		//to be implemented
 		return null;
+	}
+
+	public Data getDataToPaint() {
+		return null;
+	}
+
+	@Override
+	public void setLocation(Vector newLocation) {
+		this.location = newLocation;
+	}
+
+	@Override
+	public void setSpeed(Vector speed) {
+		this.speed = speed;
+	}
+
+	@Override
+	public Vector getLocation() {
+		return location;
+	}
+
+	@Override
+	public Vector getSpeed() {
+		return speed;
 	}
 }
