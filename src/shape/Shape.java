@@ -1,74 +1,60 @@
 package shape;
 
 import java.awt.Color;
-import java.awt.Graphics;
-
-import listeners.MyMouseListener;
+import listeners.Collidable;
+import listeners.Paintable;
 import model.GameObject;
 import model.Vector;
 import mvvm.Data;
 
-public class Shape implements GameObject {
+// move to model?
+public class Shape implements GameObject, Paintable {
 
 	private Vector location;
 	private Vector speed;
 
 	private Color color;
-	private boolean isLive;
-	private MyMouseListener listener;
+	private boolean isAlive;
 
-	public Shape(int x, int y, int r, int speedX, int speedY) {
-		//
+	public Shape(Vector location, Vector speed) {
+		this.location = location;
+		this.speed = speed;
 	}
 
+	public Shape(Vector location) {
+		this(location, new Vector(0, 0));
+	}
+
+	public Shape(Data data) {
+		this.setLocation(
+			new Vector(data.getX(), data.getY()));
+		this.setSpeed(
+			new Vector(0,0));
+	}
+
+	//paintable attributes
+	@Override
 	public Color getColor() {
 		return color;
 	}
 
+	@Override
 	public void setColor(Color color) {
 		this.color = color;
 	}
 
-	public boolean isLive() {
-		return isLive;
-	}
-
-	public void setLive(boolean isLive) {
-		this.isLive = isLive;
-	}
-
-	public MyMouseListener getListener() {
-		return listener;
-	}
-
-	public void setListener(MyMouseListener listener) {
-		this.listener = listener;
+	//animate attributes
+	@Override
+	public boolean isAlive() {
+		return isAlive;
 	}
 
 	@Override
-	public void paint(Graphics g) {
-		//
+	public void setAlive(boolean isAlive) {
+		this.isAlive = isAlive;
 	}
 
-	@Override
-	public void move() {
-		// TODO Auto-generated method stub
-
-	}
-
-	public Data getDataToPaint() {
-		return null;
-	}
-
-	public Data toStringForPaint() {
-		//to be implemented
-		return null;
-	}
-
-	public Data getDataToPaint() {
-		return null;
-	}
-
+	//game object attributes
 	@Override
 	public void setLocation(Vector newLocation) {
 		this.location = newLocation;
@@ -87,5 +73,16 @@ public class Shape implements GameObject {
 	@Override
 	public Vector getSpeed() {
 		return speed;
+	}
+
+	@Override
+	public boolean collides(Collidable other) {
+		return false; // to be implemented in the last releases maybe
+	}
+
+	@Override
+	public Data toData() {
+		// can be send across the network
+		return null;
 	}
 }

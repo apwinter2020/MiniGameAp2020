@@ -2,9 +2,17 @@ package mvvm;
 
 import java.awt.Color;
 import java.awt.Image;
-
 import enums.DrawType;
+import channels.Panel;
+import net.DataParser;
 
+/** Raw data received from internet
+     *  which are used directly in graphics api,
+	 *  and indirectly by logic (after getting converted to game object)
+	 * @see ViewModel
+     * @see Panel
+	 * @see DataParser
+     */
 public class Data {
 
 	private int x;
@@ -16,7 +24,11 @@ public class Data {
 	private DrawType type;
 
 	public Data() {
-		//
+		//do the initialization
+	}
+
+	public Data(String data) {
+		//read the string
 	}
 	
 	public Data setX(int x) {

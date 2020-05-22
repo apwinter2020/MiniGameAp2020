@@ -1,48 +1,39 @@
 package mvvm;
 
 import java.awt.Graphics;
+import java.util.List;
 
+/** 
+ * Practically does all the drawing!
+*/
 public class ViewModel {
 
-    private static ViewModel instance = new ViewModel();
-
-    public ViewModel() {
-        //
+    /* lazy instantiation of the singleton ViewModel */
+    private static class InstanceHolder {
+        public static final ViewModel instance = new ViewModel();
     }
 
-    public ViewModel getInstance() {
-        return instance;
+    public static ViewModel getInstance() {
+        return InstanceHolder.instance;
     }
 
-	public void draw(Graphics g ,Data[] data ) {
+	public void draw(Graphics g , List<Data> data) {
 		for(Data d : data) {
-			drawGraphic(g , d);
+			drawGraphics(g , d);
 		}
-	}
-
-	private static void drawGraphic(Graphics g , Data data) {
-		switch (key) {
-		case value:
-			
-			break;
-
-		default:
-			break;
-		}
-		
-		
 	}
 	
-	private void drawGraphic(Graphics g , Data data) { 
-        
+	private void drawGraphics(Graphics g , Data data) { 
         switch (data.getType()) {
             case OVAL:
                 drawOval(g, data);
                 break;
 
-            default:
-                break;
-            }		
+            default: break;
+        }
+        /* other alternative, preventing view model from using possible logic: 
+        * EnumMap<DrawType, BiConsumer<Graphics, Data> 
+        */ 		
     }
     
     private void drawOval (Graphics g, Data data) { 

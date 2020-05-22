@@ -1,22 +1,19 @@
 package shape;
 
-import listeners.MyMouseListener;
+import model.Vector;
+import mvvm.Data;
 
 public class Circle extends Shape {
 
-	private int r;
+	private int radius; // will be used to detect collisions in the future updates
 
-	public Circle(int x , int y , int r  , int speedX ,  int speedY , MyMouseListener listener) {
-		super(x, y, speedX)
+	public Circle(Vector location, Vector speed, int radius) {
+		super(location, speed);
+		this.radius = radius;
 	}
-	
 
-	public Circle(String data) {
-		//to be implemented later
-	}
-	
-	@Override
-	public String toString() {
-		return super.toString();
+	public Circle(Data data) {
+		super(data);
+		this.radius = data.getWidth(); //either height or width doesn't matter
 	}
 }
