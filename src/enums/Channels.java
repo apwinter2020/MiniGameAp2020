@@ -1,7 +1,8 @@
 package enums;
 
+/**
+ *  different menus of the game
+ *  @apiNote these will be mapped to JPanels */
 public enum Channels {
-
-	game , menu , pause;
-	
+    GAME, MENU, PAUSE       
 }

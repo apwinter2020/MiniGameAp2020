@@ -1,11 +1,8 @@
 package listeners;
 
-import java.awt.Graphics;
+import java.awt.Color;
 
 public interface Paintable {
-
-	
-	void paint(Graphics g);
-		
-	
+	void setColor(Color color);
+	Color getColor();
 }

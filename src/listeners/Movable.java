@@ -1,9 +1,17 @@
 package listeners;
 
+import model.Vector;
+
 public interface Movable {
 
-	
-	void move() ;
-		
-	
+	default void move() {
+		this.setLocation(
+            this.getLocation().add(this.getSpeed())
+        );
+	}
+
+	void setLocation(Vector newLocation);
+	void setSpeed(Vector speed);
+	Vector getLocation();
+	Vector getSpeed();
 }

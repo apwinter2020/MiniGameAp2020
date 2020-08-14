@@ -1,0 +1,19 @@
+#including all files and folders except src and readme
+*
+!src/
+!README.md
+
+#macos system files
+**/.DS_Store
+
+#eclipse files
+.settings/
+.classpath
+.project
+
+#intellij
+.idea/
+
+#vscode
+.vscode/
+
